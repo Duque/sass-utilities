@@ -1,15 +1,18 @@
-/* *********************************************************************
-/* SASS CSS Utilities for frontend developers by RDuque www.rduque.com *
-***********************************************************************/
+/***********************************************************************/
+/* SASS CSS Utilities for frontend developers by RDuque www.rduque.com */
+/***********************************************************************/
 
-/*********
-/* Vars  *
-*********/
+/********/
+/* Vars */
+/********/
 
 /* BREACKPOINTS */
 $bp: ("sm": "576", "md": "768", "lg": "992");
 
 
+/*********/
+/* Sizes */
+/*********/
 
 /* Improved Bootstrap Widths with media breakpoints */
 /* Ex. result: .w-100 { width: 100%; } */
@@ -32,3 +35,27 @@ $wd: ("100"),("75"),("50"),("33"),("25");
   }
 }
 @include widths();
+
+
+/**************/
+/* Animations */
+/**************/
+
+// Delay animation mixin
+// Ex. result: .delay-06
+// Use: delay-[$var]
+@mixin delay() {
+  @each $var in ("02"),("04"),("06"),("08"),("1"),("12"),("14"),("16"),("18"),("2"),("22"),("26"),("3"),("34") {
+    $sec: str-insert($var, ".", 2);
+    $u: str-length($var);
+    .delay-#{$var} {
+      @if $u != 1  {
+        transition-delay: #{$sec}s!important;
+      } @else {
+        transition-delay: #{$var}s!important;
+      }      
+    }
+  }
+}
+
+@include delay();
