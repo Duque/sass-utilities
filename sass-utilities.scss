@@ -1,0 +1,34 @@
+/* *********************************************************************
+/* SASS CSS Utilities for frontend developers by RDuque www.rduque.com *
+***********************************************************************/
+
+/*********
+/* Vars  *
+*********/
+
+/* BREACKPOINTS */
+$bp: ("sm": "576", "md": "768", "lg": "992");
+
+
+
+/* Improved Bootstrap Widths with media breakpoints */
+/* Ex. result: .w-100 { width: 100%; } */
+/* Use: w-[$wd] or w-[$bp]-[$wd] */
+$wd: ("100"),("75"),("50"),("33"),("25");
+@mixin widths() {
+  @each $var in $wd {
+    .w-#{$var} {
+      width: #{$var}#{"%"};
+    }
+  }
+  @each $key, $value in $bp {
+    @media (min-width:#{$value}px) {
+      @each $var in $wd {
+        .w-#{$key}-#{$var} {
+          width: #{$var}#{"%"}!important;
+        }
+      }
+    }
+  }
+}
+@include widths();
