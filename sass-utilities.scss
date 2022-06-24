@@ -11,6 +11,28 @@ $bp: ("sm": "576", "md": "768", "lg": "992");
 
 
 /*********/
+/* Texts */
+/*********/
+
+/* Text responsive Bootstrap display sizes */
+/* Ex. .display-md-1 */
+/* Use: display-[$bp.key]-[$num] */
+@mixin textDisplays {
+  @each $key, $value in $bp {
+    @media (min-width:#{$value}px) {
+      @each $num, $val in (1,6),(2,5),(3,4),(4,3),(5,2) {
+        .display-#{$key}-#{$num} {
+          color: #{$val}rem;
+        }
+      }
+    }
+  }
+}
+
+@include textDisplays();
+
+
+/*********/
 /* Sizes */
 /*********/
 
@@ -59,3 +81,6 @@ $wd: ("100"),("75"),("50"),("33"),("25");
 }
 
 @include delay();
+
+
+
