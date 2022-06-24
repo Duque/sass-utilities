@@ -9,6 +9,8 @@
 /* BREACKPOINTS */
 $bp: ("sm": "576", "md": "768", "lg": "992");
 
+/* WIDTHS */
+$wd: ("100"),("75"),("50"),("33"),("25");
 
 /*********/
 /* Texts */
@@ -39,7 +41,6 @@ $bp: ("sm": "576", "md": "768", "lg": "992");
 /* Improved Bootstrap Widths with media breakpoints */
 /* Ex. result: .w-100 { width: 100%; } */
 /* Use: w-[$wd] or w-[$bp]-[$wd] */
-$wd: ("100"),("75"),("50"),("33"),("25");
 @mixin widths() {
   @each $var in $wd {
     .w-#{$var} {
