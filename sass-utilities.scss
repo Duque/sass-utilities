@@ -24,7 +24,7 @@ $wd: ("100"),("75"),("50"),("33"),("25");
     @media (min-width:#{$value}px) {
       @each $num, $val in (1,6),(2,5),(3,4),(4,3),(5,2) {
         .display-#{$key}-#{$num} {
-          color: #{$val}rem;
+          font-size: #{$val}rem;
         }
       }
     }
